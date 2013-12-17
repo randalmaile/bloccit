@@ -14,9 +14,12 @@ group :development do
 end
 
 group :development do
-  gem 'haml-rails', '~> 0.3.4'
+  gem 'pry-rails'
 end
 
+group :development do
+  gem 'haml-rails', '~> 0.3.4'
+end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -28,14 +31,12 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 end
 
+gem 'newrelic_rpm'
 gem 'jquery-rails'
-
-
-group :development do
-  gem 'pry-rails'
-end
-
 gem 'faker'
+gem 'devise'
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

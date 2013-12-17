@@ -1,2 +1,16 @@
-%h1 Welcome to Bloccit
-%p This is the home page for Bloccit!
+.hero-unit
+  %h1 Bloccit
+  %p Bloccit is a resource for sharing links with your friends!
+  %p
+    = link_to "Sign In", new_user_session_path, class: 'btn btn-primary btn-large'
+    = link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-large'
+.row
+  .span4
+    %h2 Amazing Point 1
+    %p This is some content about how great point 1 is. You should really use Bloccit because of it! No seriously, it really is amazing and great and you should really check it out.
+  .span4
+    %h2 Amazing Point 2
+    %p This is some content about how great point 2 is. You should really use Bloccit because of it! No seriously, it really is amazing and great and you should really check it out.
+  .span4
+    %h2 Amazing Point 3
+    %p This is some content about how great point 3 is. You should really use Bloccit because of it! No seriously, it really is amazing and great and you should really check it out.
