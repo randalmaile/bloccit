@@ -12,8 +12,10 @@ class PostsController < ApplicationController
   end
 
   # Adding a create method to the posts_controller.rb
+  # This is the action method called when a user hits Save/Submit btn
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(params[:post]) # :post is the Post instance from our model
+    @post = current_user.posts.build(params[:post])
     if @post.save
       flash[:notice] = "Post was saved"
       redirect_to @post
