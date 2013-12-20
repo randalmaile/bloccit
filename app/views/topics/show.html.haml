@@ -1,0 +1,22 @@
+%h1= @topic.name
+- if can? :update, @topic
+  =link_to "Edit topic", edit_topic_path, class: 'btn btn-primary btn-mini'
+
+.row
+  .span8
+    %p.lead= @topic.description
+    - @posts.each do |post|
+      .media
+        .media-body
+          .media-heading
+            %h4= link_to post.title, [@topic, post]
+            %small
+              = "submitted #{time_ago_in_words(post.created_at)} ago by #{post.user.name}"             
+              %br/
+              = "#{post.comments.count} Comments"
+  .span4
+    - if can? :create, Post
+      = link_to "New Post", new_topic_post_path(@topic), class: 'btn btn btn-large btn-block'
+
+
+

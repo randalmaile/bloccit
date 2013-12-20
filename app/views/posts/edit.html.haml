@@ -8,7 +8,7 @@
       %li Blah blah blah
       %li Blah blah
   .span6
-    = form_for @post, html: {class: 'form-horizontal' } do |f| 
+    = form_for [@topic, @post], html: {class: 'form-horizontal' } do |f| 
       .control-group
         = f.label :title, class: 'control-label'
         .controls

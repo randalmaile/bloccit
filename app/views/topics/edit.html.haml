@@ -1,0 +1,27 @@
+%h1 Edit Topic
+.row
+  .span6
+    %p Guidelines for new topic:
+    %ul
+      %li Make sure content is appropriate.
+      %li Blah blah blah
+      %li Blah blah blah
+      %li Blah blah blah
+  .span6
+    = form_for @topic, html: { class: 'form-horizontal' } do |f|
+      .control-group
+        = f.label :name, class: 'control-label'
+        .controls
+          = f.text_field :name
+      .control-group
+        = f.label :description, class: 'control-label'
+        .controls
+          = f.text_area :description, rows: 8
+      .control-group
+        .controls
+          = f.label :public, class: 'checkbox' do
+            = f.check_box :public
+            Public topic
+      .control-group
+        .controls
+          = f.submit "Save", class: 'btn'
