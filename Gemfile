@@ -17,9 +17,8 @@ group :development do
   gem 'pry-rails'
 end
 
-group :development do
-  gem 'haml-rails', '~> 0.3.4'
-end
+gem 'haml-rails', '~> 0.3.4'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
