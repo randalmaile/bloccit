@@ -5,8 +5,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])   
+    @topic = Topic.find(params[:topic_id])   
+    @post = Post.find(params[:id])    
   end
 
   def new
@@ -19,8 +19,9 @@ class PostsController < ApplicationController
   # This is the action method called when a user hits Save/Submit btn
   def create
     @topic = Topic.find(params[:topic_id])
-    @post = Post.new(params[:post]) # :post is the Post instance from our model
     @post = current_user.posts.build(params[:post])
+    @post.topic = @topic
+
     authorize! :create, @post, message: "You need to be signed up to do that."
     if @post.save
       flash[:notice] = "Post was saved."
