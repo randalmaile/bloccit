@@ -14,5 +14,10 @@
     .controls
       = f.text_area :body, rows: 8
   .control-group
+    = image_tag(post.image.thumb.url) if post.image?
+    = f.label :image, class: 'control-label'
+    .controls
+      = f.file_field :image
+  .control-group
     .controls
       = f.submit "Save", class: 'btn'

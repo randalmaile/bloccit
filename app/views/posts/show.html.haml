@@ -1,6 +1,12 @@
 %h1= markdown @post.title
-- if can? :edit, @post
-  = link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-mini' 
-.span8
-  %p= markdown @post.body
-
+.row
+  .span8
+    %small
+      = image_tag(@post.user.avatar.tiny.url) if @post.user.avatar?
+      submitted #{time_ago_in_words(@post.created_at)} ago by
+      \#{@post.user.name}
+    %p= markdown @post.body
+    %p= image_tag(@post.image.thumb.url) if @post.image?
+  .span4
+    - if can? :edit, @post
+      = link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-large btn-block'
