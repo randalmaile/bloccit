@@ -5,20 +5,22 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+group :development do
+  gem 'sqlite3'
+  gem 'faker'
+  gem 'pry-rails'
+end
+
 group :production do
   gem 'pg'
 end
 
-group :development do
-  gem 'sqlite3'
-end
-
-group :development do
-  gem 'pry-rails'
-end
-
-gem 'haml-rails', '~> 0.3.4'
-
+gem 'devise'
+gem 'redcarpet'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'figaro'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -30,20 +32,14 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 end
 
-gem 'newrelic_rpm'
 gem 'jquery-rails'
-gem 'faker'
-gem 'devise'
 gem 'cancan'
-gem 'redcarpet'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'fog'
-gem 'figaro'
+gem 'newrelic_rpm'
+gem 'haml-rails', '~> 0.3.4'
 
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
