@@ -19,3 +19,8 @@
 
 # Carrierwave image
 public/uploads
+
+# Keys
+id_rsa
+id_rsa.pub
+known_hosts
