@@ -24,3 +24,7 @@ public/uploads
 id_rsa
 id_rsa.pub
 known_hosts
+
+#random stuff
+.DS_Store
+db/.DS_Store
