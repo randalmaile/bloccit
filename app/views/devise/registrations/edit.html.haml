@@ -2,34 +2,45 @@
   Edit #{resource_name.to_s.humanize}
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, :autofocus => true
+  .control-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name, :autofocus => true
+  .control-group
+    = f.label :email, class: 'control-label'
+    .controls
+      = f.text_field :email
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  %div
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, :autocomplete => "off"
-  %div
+    .control-group
+      %p Waiting confirmation for:
+      .controls
+        = resource.unconfirmed_email
+  .control-group
+    = f.label :password, class: 'control-label'
+    .controls
+      = f.password_field :password
+      %i (leave blank if you don't want to change it)
+  .control-group
     = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %div
+    .controls
+      = f.password_field :password_confirmation
+  .control-group
     = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password
+    .controls
+      = f.password_field :current_password
+      %i (we need your current password to confirm your changes)
   .control-group
     = image_tag(current_user.avatar.small.url) if current_user.avatar?
     = f.label :avatar, class: 'control-label'
     .controls
       = f.file_field :avatar
-  %div= f.submit "Update"
+  .control-group
+    .controls   
+      = f.submit "Update", class: 'btn'
+
 %h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
-= link_to "Back", :back
+.horizontal-form
+  .control-group
+    .controls
+      %p
+        = button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger btn-small'
