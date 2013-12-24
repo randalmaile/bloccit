@@ -1,7 +1,6 @@
 %h1= @topic.name
 - if can? :update, @topic
   =link_to "Edit topic", edit_topic_path, class: 'btn btn-primary btn-mini'
-
 .row
   .span8
     %p.lead= @topic.description
@@ -18,6 +17,7 @@
               %br/
               = post.comments.count
               Comments
+    = will_paginate @posts
   .span4
     - if can? :create, Post
       = link_to "New Post", new_topic_post_path(@topic), class: 'btn btn btn-large btn-block'

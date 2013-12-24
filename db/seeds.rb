@@ -1,14 +1,14 @@
 require 'faker'
 
 topics = []
-15.times do
+50.times do
   topics << Topic.create(
     name: Faker::Lorem.words(rand(1..10)).join(" "),
     description: Faker::Lorem.paragraph(rand(1..4))
     )
   end
 
-rand(4..10).times do
+rand(10..20).times do
   password = Faker::Lorem.characters(10)
   u = User.new(
     name: Faker::Name.name, 
@@ -23,7 +23,7 @@ rand(4..10).times do
   # The `skip_confirmation!` method sets the confirmation date
   # to avoid sending an email. The `save` method updates the database.
 
-  rand(5..12).times do
+  rand(20..30).times do
     topic = topics.first
     p = u.posts.create(
       topic: topic,
@@ -33,7 +33,7 @@ rand(4..10).times do
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
     topics.rotate! # add this line to move the first to the last so posts get assigned to each topic
       
-      rand(3..7).times do
+      rand(10..15).times do
           p.comments.create(
             body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
         end
