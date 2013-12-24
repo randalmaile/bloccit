@@ -7,6 +7,14 @@
       \#{@post.user.name}
     %p= markdown @post.body
     %p= image_tag(@post.image.thumb.url) if @post.image?
+    
+    %h2
+      - if @comments.count == 1
+        #{@comments.count} Comment
+      - else
+        #{@comments.count} Comments
+    = render partial: 'comments/comment', collection: @comments
+    = render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment}
   .span4
     - if can? :edit, @post
       = link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-large btn-block'
