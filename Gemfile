@@ -41,6 +41,7 @@ gem 'haml-rails', '~> 0.3.4'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'will_paginate', '~> 3.0.5'
+gem 'omniauth-facebook'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

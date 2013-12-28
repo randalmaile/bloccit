@@ -12,6 +12,13 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'rmaile2000@yahoo.com'
 
+# ==> OmniAuth
+  # Add a new OmniAuth provider. Check the wiki for more information on setting
+  # up on your models and hooks.
+  # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET']
+
+  
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
