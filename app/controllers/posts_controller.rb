@@ -6,7 +6,9 @@ class PostsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:topic_id])   
-    @post = Post.find(params[:id])    
+    @post = Post.find(params[:id]) 
+    @comments = @post.comments # need to pass @comments to we can pass the collection to the comment partial
+    @comment = Comment.new # need to pass @comment - create a new Comment object to pass to the form patial
   end
 
   def new
