@@ -6,6 +6,7 @@
     %p.lead= @topic.description
     - @posts.each do |post|
       .media
+        = render partial: 'votes/voter', locals: {topic: @topic, post: post}
         .media-body
           .media-heading
             = image_tag(post.image.thumb.url) if post.image?

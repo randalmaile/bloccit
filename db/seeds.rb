@@ -30,6 +30,7 @@ end
       title: Faker::Lorem.words(rand(1..5)).join(" "), 
       body: Faker::Lorem.paragraphs(rand(1..3)).join("\n"))
     p.update_attribute(:created_at, Time.now - rand(600..31536000)) # set the created_at to a time within the past year
+    p.update_rank
     topics.rotate! # add this line to move the first to the last so posts get assigned to each topic
   end
 end
