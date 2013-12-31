@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id]) 
     @comments = @post.comments # need to pass @comments to we can pass the collection to the comment partial
     @comment = Comment.new # need to pass @comment - create a new Comment object to pass to the form patial
+    @comments_count = @comments.count
   end
 
   def new

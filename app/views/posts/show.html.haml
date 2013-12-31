@@ -8,7 +8,7 @@
       \#{@post.user.name}
     %p= markdown @post.body
     %p= image_tag(@post.image.thumb.url) if @post.image?
-    %h3 #{@comments.count} Comments
+    %h3 #{@comments_count} Comments
     %br/ 
     = render partial: "comments/comment", collection: @comments
 
@@ -26,3 +26,4 @@
   %small 
     = pluralize(@post.up_votes, 'up vote')
     = pluralize(@post.down_votes, 'down vote')
+= render partial: "favorites/favorite", locals: {topic: @topic, post: @post}

@@ -1,0 +1,11 @@
+<!doctype html>
+%html{:lang => "en"} 
+%head 
+  %meta{:charset => "UTF-8"}
+%body 
+  %h1 New comment to #{@post.title}
+  %small By: #{@comment.user.name}
+  %p #{@comment.body}
+  %p 
+    = link_to "View comment on site", topic_post_url(@post.topic, @post, anchor: "comment-#{@comment.id}")
+  

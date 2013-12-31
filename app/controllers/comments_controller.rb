@@ -5,12 +5,13 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(params[:comment])
     @comment.post = @post
+    @comments_count = @post.comments.count
     if @comment.save
       flash[:notice] = "Your comment was saved!"
       redirect_to [@topic, @post]
     else
       flash[:error] = "There was a problem saving the post."
-      redirect_to [@topic, @post]
+      render "posts/show"
     end
   end
 
