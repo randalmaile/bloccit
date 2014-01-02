@@ -1,5 +1,5 @@
 .favorite
-  - if favorite = current_user.favorited(post)
+  - if favorite = current_user && current_user.favorited(post)
     = link_to [topic, post, favorite], class: 'btn btn-small', method: :delete do
       %i.icon-star-empty 
       &nbsp; Unfavorite
