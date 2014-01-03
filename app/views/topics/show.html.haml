@@ -4,20 +4,7 @@
 .row
   .span8
     %p.lead= @topic.description
-    - @posts.each do |post|
-      .media
-        = render partial: 'votes/voter', locals: {topic: @topic, post: post}
-        .media-body
-          .media-heading
-            = image_tag(post.image.thumb.url) if post.image?
-            %h4= link_to (markdown post.title), [@topic, post]
-            %small
-              = image_tag(post.user.avatar.tiny.url) if post.user.avatar?
-              submitted #{time_ago_in_words(post.created_at)} ago by
-              \#{post.user.name}
-              %br/
-              = post.comments.count
-              Comments
+    = render @posts
     = will_paginate @posts
   .span4
     - if can? :create, Post
