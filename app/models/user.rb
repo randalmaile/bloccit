@@ -42,6 +42,11 @@ class User < ActiveRecord::Base
     self.favorites.where(post_id: post.id).first
   end
 
+  def voted(post)
+    #if current user voted on passed in post, then return true or false
+    self.votes.where(post_id: post.id).first
+  end
+
   private
 
   def set_member
