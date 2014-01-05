@@ -8,7 +8,7 @@
       \#{@post.user.name}
     %p= markdown @post.body
     %p= image_tag(@post.image.thumb.url) if @post.image?
-    %h3 #{@comments_count} Comments
+    %h3.js-comments-count #{@comments_count} Comments
     %br/ 
     = render partial: "comments/comment", collection: @comments
 
