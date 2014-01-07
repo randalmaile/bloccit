@@ -1,6 +1,8 @@
 - if @comment.destroyed?
   $('#comment-' +#{@comment.id}).hide();
   $('.js-comments-count').html("#{@post.comments.count} Comments");
+  
+  $("div.alert.alert-success").html("#{escape_javascript(flash[:notice])}");
 - else
   $('#comment-' +#{@comment.id}).prepend("
   .alert.alert-error>= flash[:error]

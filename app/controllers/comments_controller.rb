@@ -6,13 +6,13 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(params[:comment])
     @comment.post = @post
-    @comments_count = @post.comments.count
+    @comments = @post.comments
     if @comment.save
       flash[:notice] = "Your comment was saved!"
       redirect_to [@topic, @post]
     else
       flash[:error] = "There was a problem saving the post."
-      render "posts/show"
+      render 'topics/posts/show'
     end
   end
 
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
     end
 
     respond_with(@comment) do |f|
-      f.html { redirect_to [@topic, @post] }
+        f.html { redirect_to [@topic, @post] }
     end
   end
 end
